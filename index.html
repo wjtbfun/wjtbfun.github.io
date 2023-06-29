@@ -23,7 +23,7 @@
 
         document.body.style.textAlign = "left";
       }
-
+      var myUnityInstance;
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/InWebGL.data",
         frameworkUrl: "Build/InWebGL.framework.js",
@@ -34,7 +34,16 @@
         productVersion: "1.0",
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      }).then(function(instance){
+        myUnityInstance = instance;
       });
+    function sendMessageToUnity() {
+      if (myUnityInstance) {
+        myUnityInstance.SendMessage("JSRecevier", "pressBackspace");
+      }
+    }
+
     </script>
+      <button onclick="sendMessageToUnity()">Send Message to Unity</button>
   </body>
 </html>
