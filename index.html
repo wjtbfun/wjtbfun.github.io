@@ -10,8 +10,6 @@
 
 
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&display=swap');
-
 body{
 margin: 0;
 max-height: 100%;
@@ -25,7 +23,6 @@ background-repeat: no-repeat;
 position: relative;
 width: 100%;
 -webkit-tap-highlight-color: transparent;
-font-family: 'Open Sans', sans-serif;
 }
 
 body.Dark{
@@ -151,15 +148,10 @@ background-image: url("fullscreenOFF.png") ;
    <div id="loader" class="loader">
       <div class="container">
          <div class="center" style="text-align:left">
-            <img src="./Loading/loading.gif" style="width: auto;max-width: 80%;margin: 30px auto;max-height: 100px;" />
-         </div>
-         <div class="center">
+            <img src="./Loading/loading.gif" style="width: auto;max-width: 80%;max-height: 100px;margin-left:-2%" />
             <div style="padding: 1px;left: 0;border-radius: 3px;border: 1px solid white;background-color:white;">
-               <div id="fill" class="fill" style="width: 0%;height:6px;display: block;border-radius: 10px;transition-property: width;transition-duration: 1s;background: #01c7fb;"></div>
+               <div id="fill" class="fill" style="width: 0%;height:20px;display: block;border-radius:3px;transition-property:width;transition-duration: 1s;background: #01c7fb;"></div>
             </div>
-         </div>
-         <div class="center">
-            <p>기다려주세요..!</p>
          </div>
       </div>
    </div>
@@ -168,16 +160,10 @@ background-image: url("fullscreenOFF.png") ;
   </body>
 
 
-<script src="Build/inappgame-webgl.loader.js"></script>
+<script src="Build/InWebGL.loader.js"></script>
 <script>
 
-function onProgress(progress) {
-   document.querySelector("#fill").style.width = progress * 100 + "%";
-}
-
-function onComplete(unityInstance) {
-   //document.querySelector("#loader").remove();
-}
+var unityInstance;
 
 if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
    // Mobile device style: fill the whole browser client area with the game canvas:
@@ -194,10 +180,24 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
    document.body.style.textAlign = "left";
 }
 
+
+function onProgress(progress) {
+   document.querySelector("#fill").style.width = progress * 100 + "%";
+}
+
+function onComplete(UnityInstance) {
+  unityInstance = UnityInstance;
+  document.querySelector("#loader").remove();
+}
+
+function onBackPressed() {
+   if (unityInstance) unityInstance.SendMessage("JSRecevier","onBackPressed");
+}
+
 createUnityInstance(document.querySelector("#unity-canvas"), {
-   dataUrl: "Build/inappgame-webgl.data.unityweb",
-   frameworkUrl: "Build/inappgame-webgl.framework.js.unityweb",
-   codeUrl: "Build/inappgame-webgl.wasm.unityweb",
+   dataUrl: "Build/InWebGL.data.unityweb",
+   frameworkUrl: "Build/InWebGL.framework.js.unityweb",
+   codeUrl: "Build/InWebGL.wasm.unityweb",
    streamingAssetsUrl: "StreamingAssets",
    companyName: "DefaultCompany",
    productName: "inappgame",
@@ -206,10 +206,6 @@ createUnityInstance(document.querySelector("#unity-canvas"), {
    // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
 },onProgress).then(onComplete).catch((e)=>{alert(e)});
 
-function sendMessageToUnity() {
-   if (myUnityInstance) {
-      myUnityInstance.SendMessage("JSRecevier", "pressBackspace");
-   }
-}
+
 </script>
 </html>
