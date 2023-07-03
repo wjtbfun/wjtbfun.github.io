@@ -19,7 +19,8 @@ function onBackPressed(data){
 }
 
 function onCloseInAppGame(data){
-  //closeInAppGame();
+  try{ window.android.closeInAppGame(); }catch(e){}
+  try{ window.webkit.messageHandlers.closeInAppGame.postMessage(null); }catch(e){}
 }
 
 window.onresize = function resizeWindow(event){
