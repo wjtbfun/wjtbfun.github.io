@@ -12,7 +12,7 @@ function onProgress(progress) {
 
 function onComplete(UnityInstance) {
   unityInstance = UnityInstance;
-//document.querySelector("#loading").remove();
+  document.querySelector("#loading").remove();
 }
 
 function onBackPressed() {
@@ -20,14 +20,8 @@ function onBackPressed() {
 }
 
 window.onresize = function resizeWindow(event){
-  // 화면비율이 4:3보다 높이가 작으면 16:10으로 맞춤
-  console.log(document.body.clientWidth,document.body.clientHeight,document.getElementById('loading').style.width,document.getElementById('loading').style.height);
-  if(document.body.clientHeight*3/4<document.body.clientWidth){
-    document.getElementById('main-container').style.width=(document.body.clientHeight/1.6)+'px';
-    console.log(document.body.clientHeight*1.6);
-  }else{
-    document.getElementById('main-container').style.width='100%';
-  }
+  if(document.body.clientHeight*3/4<document.body.clientWidth) document.getElementById('main-container').style.width=(document.body.clientHeight/1.6)+'px';
+  else document.getElementById('main-container').style.width='100%';
 }
 
 window.onload = function(){;
