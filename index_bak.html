@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | inappgame</title>
+    <title>Unity WebGL Player | Brainbattle</title>
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=1080 height=1920 style="width: 1080px; height: 1920px; background: #231F20"></canvas>
@@ -25,27 +24,17 @@
         document.body.style.textAlign = "left";
       }
 
-  var myUnityInstance;
-  createUnityInstance(document.querySelector("#unity-canvas"), {
-    dataUrl: "Build/InWebGL.data",
-    frameworkUrl: "Build/InWebGL.framework.js",
-    codeUrl: "Build/InWebGL.wasm",
-    streamingAssetsUrl: "StreamingAssets",
-    companyName: "DefaultCompany",
-    productName: "inappgame",
-    productVersion: "1.0",
-    // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-    // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-  }).then(function (instance) {
-    myUnityInstance = instance;
-  });
-  function sendMessageToUnity() {
-    if (myUnityInstance) {
-      myUnityInstance.SendMessage("JSRecevier", "pressBackspace");
-    }
-  }
-
-</script>
-    <button onclick="sendMessageToUnity()">Send Message to Unity</button>
-    </body>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/InWebGL.data",
+        frameworkUrl: "Build/InWebGL.framework.js",
+        codeUrl: "Build/InWebGL.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "WoonjingThinkbig",
+        productName: "Brainbattle",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+  </body>
 </html>
