@@ -32,6 +32,7 @@ window.onload = function(){;
   setTimeout(function(){
     window.dispatchEvent(new Event('resize'));
   },0);
+  /*
   createUnityInstance(document.querySelector("#unity-canvas"),{
     dataUrl: "Build/InWebGL.data",
     frameworkUrl: "Build/InWebGL.framework.js",
@@ -39,6 +40,18 @@ window.onload = function(){;
     streamingAssetsUrl: "StreamingAssets",
     companyName: "DefaultCompany",
     productName: "inappgame",
+    productVersion: "1.0",
+    // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+    // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+  },onProgress).then(onComplete).catch((e)=>{onError(e);});
+  */
+  createUnityInstance(document.querySelector("#unity-canvas"),{
+    dataUrl: "Build/InWebGL.data",
+    frameworkUrl: "Build/InWebGL.framework.js",
+    codeUrl: "Build/InWebGL.wasm",
+    streamingAssetsUrl: "StreamingAssets",
+    companyName: "WoonjingThinkbig",
+    productName: "Brainbattle",
     productVersion: "1.0",
     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
     // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
