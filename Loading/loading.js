@@ -1,4 +1,3 @@
-
 // width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes
 var unityInstance;
 
@@ -15,8 +14,12 @@ function onComplete(UnityInstance) {
   document.querySelector("#loading").remove();
 }
 
-function onBackPressed() {
-   if (unityInstance) unityInstance.SendMessage("JSRecevier","onBackPressed");
+function onBackPressed(data){
+   if (unityInstance) unityInstance.SendMessage('JSRecevier','onBackPressed',data);
+}
+
+function onCloseInAppGame(data){
+  //closeInAppGame();
 }
 
 window.onresize = function resizeWindow(event){
