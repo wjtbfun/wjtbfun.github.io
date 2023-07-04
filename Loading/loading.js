@@ -15,7 +15,7 @@ function onComplete(UnityInstance) {
 }
 
 function onBackPressed(data){
-   if (unityInstance) unityInstance.SendMessage('JSRecevier','onBackPressed',data);
+   if (unityInstance) unityInstance.SendMessage('JSRecevier','pressBackspace',data);
 }
 
 function onCloseInAppGame(data){
