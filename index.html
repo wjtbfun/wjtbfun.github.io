@@ -24,4 +24,30 @@
   </body>
   <script src="Build/InWebGL.loader.js"></script>
   <script src="Loading/loading.js"></script>
+      <script>
+      var unityInstance = null;
+
+
+        unityInstance = createUnityInstance(document.querySelector("#unity-canvas"), {
+          dataUrl: "Build/InWebGL.data",
+          frameworkUrl: "Build/InWebGL.framework.js",
+          codeUrl: "Build/InWebGL.wasm",
+          streamingAssetsUrl: "StreamingAssets",
+          companyName: "WoonjingThinkbig",
+          productName: "Brainbattle",
+          productVersion: "1.0",
+          // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+          // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+        });
+
+        function onBackPressed(data) {
+            if (unityInstance) unityInstance.SendMessage('JSRecevier', 'pressBackspace', data);
+          }
+
+          function onCloseInAppGame(data) {
+            try { window.android.closeInAppGame(); } catch (e) { }
+            try { window.webkit.messageHandlers.closeInAppGame.postMessage(null); } catch (e) { }
+          }
+      </script>
+      
 </html>
