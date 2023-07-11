@@ -2,52 +2,39 @@
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,user-scalable=no;"/>
-    <title>Brain Battle - Woongjin Thinkbig</title>
-    <link rel="stylesheet" href="./Loading/loading.css"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Brainbattle</title>
   </head>
-  <body>
-    <div id="main-container">
-      <div id="unity-container">
-        <canvas id="unity-canvas"></canvas>
-      </div>
-      <div id="loading">
-        <div style="margin:0 auto;margin-top:-70px;width:85%;">
-            <img src="./Loading/loading.gif" style="width: auto;max-width:60%;max-height:70px;margin-left:-24px;margin-bottom:-12px;" /><br/>
-            <div style="padding: 1px;border-radius:2px;border: 1px solid #888;background-color:white;">
-              <div id="progress"></div>
-            </div>
-        </div>
-      </div>
-    </div>
+  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
+    <canvas id="unity-canvas" width=1080 height=1920 style="width: 1080px; height: 1920px; background: #231F20"></canvas>
+    <script src="Build/InWebGL.loader.js"></script>
+    <script>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+
+        var canvas = document.querySelector("#unity-canvas");
+        canvas.style.width = "100%";
+        canvas.style.height = "100%";
+        canvas.style.position = "fixed";
+
+        document.body.style.textAlign = "left";
+      }
+
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/InWebGL.data",
+        frameworkUrl: "Build/InWebGL.framework.js",
+        codeUrl: "Build/InWebGL.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "WoonjingThinkbig",
+        productName: "Brainbattle",
+        productVersion: "1.0",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
   </body>
-  <script src="Build/InWebGL.loader.js"></script>
-  <script src="Loading/loading.js"></script>
-      <script>
-      var unityInstance = null;
-
-
-        unityInstance = createUnityInstance(document.querySelector("#unity-canvas"), {
-          dataUrl: "Build/InWebGL.data",
-          frameworkUrl: "Build/InWebGL.framework.js",
-          codeUrl: "Build/InWebGL.wasm",
-          streamingAssetsUrl: "StreamingAssets",
-          companyName: "WoonjingThinkbig",
-          productName: "Brainbattle",
-          productVersion: "1.0",
-          // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-          // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-        });
-
-        function onBackPressed(data) {
-            if (unityInstance) unityInstance.SendMessage('JSRecevier', 'pressBackspace', data);
-          }
-
-          function onCloseInAppGame(data) {
-            try { window.android.closeInAppGame(); } catch (e) { }
-            try { window.webkit.messageHandlers.closeInAppGame.postMessage(null); } catch (e) { }
-          }
-      </script>
-      
 </html>
