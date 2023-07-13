@@ -34,13 +34,13 @@ window.onload = function(){;
   },0);
   createUnityInstance(document.querySelector("#unity-canvas"),{
     /*
-    dataUrl: "Build/InWebGL.data",
-    frameworkUrl: "Build/InWebGL.framework.js",
-    codeUrl: "Build/InWebGL.wasm",
-    */
     dataUrl: "Build/InWebGL.data.unityweb",
     frameworkUrl: "Build/InWebGL.framework.js.unityweb",
     codeUrl: "Build/InWebGL.wasm.unityweb",
+    */
+    dataUrl: "Build/InWebGL.data",
+    frameworkUrl: "Build/InWebGL.framework.js",
+    codeUrl: "Build/InWebGL.wasm",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "WoonjingThinkbig",
     productName: "Brainbattle",
