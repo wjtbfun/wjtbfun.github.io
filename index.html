@@ -47,10 +47,12 @@ var myUnityInstance = null;
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       }).then(function (unityInstance) {
         myUnityInstance = unityInstance;
-alert("isios"+ isIOS());
         // Unity 플레이어 초기화 후, CheckIOS 함수 호출
-        myUnityInstance.SendMessage("JSRecevier", "SetIsIOSDevice", isIOS() ? "True" : "False");
       });
+
+        function CallIsIOS() {
+          myUnityInstance.SendMessage("JSRecevier", "SetIsIOSDevice", isIOS() ? "True" : "False");
+        }
     </script>
   </body>
 </html>
