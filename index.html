@@ -10,15 +10,14 @@
     <script src="Build/InWebGL.loader.js"></script>
     <script>
 
-    function isIOS() {
-      // userAgent를 이용하여 기기와 브라우저 정보를 가져옵니다.
-      const userAgent = navigator.userAgent;
-      // iOS인지 확인하는 정규식 패턴
-      const iOSPattern = /(iPhone|iPod|iPad)/i;
-      // iOS인지 아닌지 여부를 판별하여 반환합니다.
-      return iOSPattern.test(userAgent);
-
-    }
+  function isIOS() {
+    // userAgent를 이용하여 기기와 브라우저 정보를 가져옵니다.
+    const userAgent = navigator.userAgent;
+    // iOS인지 확인하는 정규식 패턴
+    const iOSPattern = /(iPhone|iPod|iPad)/i;
+    // iOS인지 아닌지 여부를 판별하여 반환합니다.
+    return iOSPattern.test(userAgent);
+  }
     var MyunityInstance = null;
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
@@ -47,10 +46,12 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
         
-      }).then(MyunityInstance);
+      }).then(function (unityInstance) {
+        MyunityInstance = unityInstance;
 
-      MyunityInstance.SendMessage("JSRecevier", "SetIsIOSDevice", isIOS);
-        
+        // Unity 플레이어 초기화 후, CheckIOS 함수 호출
+       MyunityInstance.SendMessage("JSRecevier", "SetIsIOSDevice", isIOS() ? "1" : "0");
+      });
 
     </script>
   </body>
