@@ -32,14 +32,14 @@ window.onload = function(){;
   setTimeout(function(){
     window.dispatchEvent(new Event('resize'));
   },0);
-  createUnityInstance(document.querySelector("#unity-canvas"), {
-    dataUrl: "Build/InWebGL2.data.gz",
-    frameworkUrl: "Build/InWebGL2.framework.js.gz",
-    codeUrl: "Build/InWebGL2.wasm.gz",
-    streamingAssetsUrl: "StreamingAssets",
-    companyName: "WoonjingThinkbig",
-    productName: "Brainbattle",
-    productVersion: "1.0",
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/InWebGL.data",
+        frameworkUrl: "Build/InWebGL.framework.js",
+        codeUrl: "Build/InWebGL.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "WoonjingThinkbig",
+        productName: "Brainbattle",
+        productVersion: "1.0",
 /*
     dataUrl: "Build/InWebGL.data.unityweb",
     frameworkUrl: "Build/InWebGL.framework.js.unityweb",
