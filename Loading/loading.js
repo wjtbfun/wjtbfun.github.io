@@ -24,8 +24,8 @@ function onCloseInAppGame(data){
 }
 
 window.onresize = function resizeWindow(event){
-  //if(document.body.clientHeight*3/4<document.body.clientWidth) document.getElementById('main-container').style.width=(document.body.clientHeight/1.6)+'px';
-  if(document.body.clientHeight*3/4<document.body.clientWidth) document.getElementById('main-container').style.width=(document.body.clientHeight/1.7777)+'px';
+  if(document.body.clientHeight*3/4<document.body.clientWidth) document.getElementById('main-container').style.width=(document.body.clientHeight/1.6)+'px';
+  //if(document.body.clientHeight*3/4<document.body.clientWidth) document.getElementById('main-container').style.width=(document.body.clientHeight/1.7777)+'px';
   else document.getElementById('main-container').style.width='100%';
 }
 
@@ -34,9 +34,9 @@ window.onload = function(){;
     window.dispatchEvent(new Event('resize'));
   },0);
   createUnityInstance(document.querySelector("#unity-canvas"), {
-    dataUrl: "Build/InWebGL.data.unityweb",
-    frameworkUrl: "Build/InWebGL.framework.js.unityweb",
-    codeUrl: "Build/InWebGL.wasm.unityweb",
+    dataUrl: "Build/InWebGL.data",
+    frameworkUrl: "Build/InWebGL.framework.js",
+    codeUrl: "Build/InWebGL.wasm",
     streamingAssetsUrl: "StreamingAssets",
     companyName: "WoonjingThinkbig",
     productName: "Brainbattle",
