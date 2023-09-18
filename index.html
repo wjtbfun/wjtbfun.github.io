@@ -9,12 +9,7 @@
     <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1" style="width: 1080px; height: 1920px; background: #231F20"></canvas>
     <script src="Build/InWebGL.loader.js"></script>
     <script>
-      console.log("아나까라까나리;까나리"); // 사용자 에이전트 문자열
-      console.log(navigator.userAgent); // 사용자 에이전트 문자열
-        console.log(navigator.platform);   // 플랫폼 (운영 체제)
-        console.log(navigator.language);   // 브라우저 언어
-      console.log("아나까라까나리;까나리"); // 사용자 에이전트 문자열
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
         var meta = document.createElement('meta');
         meta.name = 'viewport';
