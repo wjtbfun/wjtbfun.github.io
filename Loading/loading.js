@@ -14,8 +14,14 @@ function onComplete(UnityInstance) {
   document.querySelector("#loading").remove();
 }
 
-function onBackPressed(data){
-   if (unityInstance) unityInstance.SendMessage('JSRecevier','pressBackspace',data);
+function onBackPressed(data) {
+  if (unityInstance) unityInstance.SendMessage('JSRecevier', 'pressBackspace', data);
+}
+function onBackground(data) {
+  if (unityInstance) unityInstance.SendMessage('JSRecevier', 'onBackground', data);
+}
+function onForeground(data) {
+  if (unityInstance) unityInstance.SendMessage('JSRecevier', 'onForeground', data);
 }
 
 function onCloseInAppGame(data){
