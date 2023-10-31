@@ -18,11 +18,11 @@ function onBackPressed(data) {
   if (unityInstance) unityInstance.SendMessage('JSRecevier', 'pressBackspace', data);
 }
 function onBackground(data) {
-  alert("onBackground");
+  console.log("onBackground");
   if (unityInstance) unityInstance.SendMessage('JSRecevier', 'onBackground', data);
 }
 function onForeground(data) {
-  alert("onForeground");
+  console.log("onForeground");
   if (unityInstance) unityInstance.SendMessage('JSRecevier', 'onForeground', data);
 }
 
@@ -59,6 +59,4 @@ window.onload = function(){;
     productVersion: "1.0",
     */
   },onProgress).then(onComplete).catch((e)=>{onError(e);});
-
-  alert("LoadEnd");
 }
