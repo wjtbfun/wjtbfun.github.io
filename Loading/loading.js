@@ -18,9 +18,11 @@ function onBackPressed(data) {
   if (unityInstance) unityInstance.SendMessage('JSRecevier', 'pressBackspace', data);
 }
 function onBackground(data) {
+  alert("onBackground");
   if (unityInstance) unityInstance.SendMessage('JSRecevier', 'onBackground', data);
 }
 function onForeground(data) {
+  alert("onForeground");
   if (unityInstance) unityInstance.SendMessage('JSRecevier', 'onForeground', data);
 }
 
