@@ -59,4 +59,6 @@ window.onload = function(){;
     productVersion: "1.0",
     */
   },onProgress).then(onComplete).catch((e)=>{onError(e);});
+
+  alert("LoadEnd");
 }
