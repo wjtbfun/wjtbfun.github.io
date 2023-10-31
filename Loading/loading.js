@@ -37,6 +37,9 @@ window.onresize = function resizeWindow(event){
   else document.getElementById('main-container').style.width='100%';
 }
 
+window.dispatchEvent(new CustomEvent('onBackground'));
+window.dispatchEvent(new CustomEvent('onForeground'));
+
 window.onload = function(){;
   setTimeout(function(){
     window.dispatchEvent(new Event('resize'));
