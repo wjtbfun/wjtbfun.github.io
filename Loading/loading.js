@@ -37,8 +37,6 @@ window.onresize = function resizeWindow(event){
   else document.getElementById('main-container').style.width='100%';
 }
 
-window.dispatchEvent(new CustomEvent('onBackground'));
-window.dispatchEvent(new CustomEvent('onForeground'));
 
 window.onload = function(){;
   setTimeout(function(){
@@ -62,4 +60,5 @@ window.onload = function(){;
     productVersion: "1.0",
     */
   },onProgress).then(onComplete).catch((e)=>{onError(e);});
+  alert("test1");
 }
