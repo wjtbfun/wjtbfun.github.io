@@ -1,0 +1,44 @@
+body{
+margin:0;
+width:100%;
+height:100%;
+position:absolute; 
+background-color:black;
+}
+
+#main-container{
+position: absolute;
+left:0;
+right:0;
+height:100%;
+margin:0 auto;
+}
+
+#unity-container{
+width:100%;
+height:100%;
+position:absolute;
+}
+
+#unity-canvas{
+width:100%;
+height:100%;
+position:absolute;
+visibility: hiddenxxx;
+}
+
+#loading{
+width:100%;
+height:100%;
+background-color:#182335;
+display:flex;
+align-items:center;
+}
+#progress{
+width:0%;
+height:15px;
+display:block;
+transition-property:width;
+transition-duration:1s;
+background:#01c7fb;
+}
