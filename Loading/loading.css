@@ -42,3 +42,10 @@ transition-property:width;
 transition-duration:1s;
 background:#01c7fb;
 }
+
+
+#toolTipFont{
+color: white;
+text-align: center;
+
+}
